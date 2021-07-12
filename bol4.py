@@ -55,6 +55,7 @@ async def on_message(message):
         e.add_field(name='볼사봇 기능문의/오류제보', value='개발자에 연락처로 기능문의나 오류제보를 할 수 있습니다.', inline=False)
         e.add_field(name='볼사봇 랜덤사진/사진', value='볼빨간사춘기의 랜덤사진을 보여줍니다.', inline=False)
         e.add_field(name='볼사봇 초대/초대하기', value='볼사봇의 초대링크를 생성합니다.', inline=False)
+        e.add_field(name='볼사봇 노래/노래추천', value='볼빨간사춘기의 노래를 랜덤으로 추천해줍니다. (커버곡, 참여곡 제외)', inline=False)
         e.set_footer(text='%s#%s' % (message.author.name, message.author.discriminator), icon_url=message.author.avatar_url)
         await message.author.send(embed=e)
         await message.channel.send('도움말을 DM으로 전송하였습니다.')

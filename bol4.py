@@ -163,6 +163,17 @@ async def on_message(message):
         e.set_footer(text='%s#%s' % (message.author.name, message.author.discriminator), icon_url=message.author.avatar_url)
         await message.channel.send(embed=e)
         print('%s#%s님이 %s의 초대링크를 생성하였습니다.' % (message.author.name, message.author.discriminator, botname))
+        
+        
+    if message.content.startswith('볼사봇 노래') or message.content.startswith('볼사봇 노래추천'):
+        song = ['우주를 줄게', '싸운날', 'You(=I)', '심술', '나만 안되는 연애', '초콜릿', '프리지아', 'X Song', '반지', '사랑에 빠졌을때', '가끔식', '썸 탈꺼야', '고쳐주세요', '상상', '나의 사춘기에게', '바람사람', '여행', '야경', '안녕, 곰인형', 'Clip', 'Lonely', '나들이 갈까', '나만, 봄', '별 보러 갈래?', 'Seattle Alone', 'Mermaid', '워커홀릭', '25', 'Taste', '낮 (Day off)', 'XX (Acoustic Ver.)', '빈칸을 채워주시오', '품', '나비와 고양이 (Feat.백현 (BAEKHYUN))', '카운슬링', '민들레', '좋다고 말해', '남이 될 수 있을까', '#첫사랑', 'Dejavu', "6 o'clock", '빨간립스틱', 'Dancing Cartoon']
+        song2 = random.choice(song)
+
+        e=discord.Embed(title='볼빨간사춘기 노래추천', description='오늘은 이노래 어떠세요?', color=0xffc0cb)
+        e.add_field(name='볼빨간사춘기 노래추천', value='볼빨간사춘기 - '+song2, inline=False)
+        e.set_footer(text='%s#%s' % (message.author.name, message.author.discriminator), icon_url=message.author.avatar_url)
+        await message.channel.send(embed=e)
+        await message.channel.send('볼빨간사춘기 신곡이 나왔을경우 제보를 해주면 확인후 반영 하도록 하겠습니다. (커버곡, 참여곡 제외)')
 
 
     

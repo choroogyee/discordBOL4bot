@@ -175,6 +175,7 @@ async def on_message(message):
         e.set_footer(text='%s#%s' % (message.author.name, message.author.discriminator), icon_url=message.author.avatar_url)
         await message.channel.send(embed=e)
         await message.channel.send('볼빨간사춘기 신곡이 나왔을경우 제보를 해주면 확인후 반영 하도록 하겠습니다. (커버곡, 참여곡 제외)')
+        print('%s#%s님이 노래추천을 받았습니다.' % (message.author.name, message.author.discriminator))
 
 
     

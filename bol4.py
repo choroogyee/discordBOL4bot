@@ -14,7 +14,7 @@ import os
 intents = discord.Intents.default()
 intents.members = True
 botname = 'BOL4봇'
-token = 'NzA0NTY2MDM0NzIzNTA0MTc5.XqfAQA.FYdbylhKF7ffoxIdXZ74RmUh5ok'
+token = ''
 uptime = time.time()
 
 bot = commands.Bot(command_prefix='볼사봇 ', help_command=None)

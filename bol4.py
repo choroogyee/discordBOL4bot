@@ -11,13 +11,14 @@ import urllib.request
 import random
 import os
 
-intents = discord.Intents.default()
-intents.members = True
+async def is_whitelisted(ctx):
+    return ctx.author.id in [487962402097332224]
+
 botname = 'BOL4봇'
 token = ''
 uptime = time.time()
 
-bot = commands.Bot(command_prefix='볼사봇 ', help_command=None)
+bot = commands.Bot(command_prefix='볼사봇 ', help_command=None, intents=discord.Intents.default())
 
 @bot.event
 async def on_ready():
@@ -42,11 +43,11 @@ async def on_ready():
         await asyncio.sleep(10)
 
 
-@bot.command(name='reload')
+@commands.check(is_whitelisted)
+@bot.command(name='재시작')
 async def reload(ctx):
-    for x in bot.cogs.keys():
-        bot.reload_extension(f'cogs.{x}')
-        await ctx.send(x)
+    [bot.reload_extension(f"cogs.{x.replace('.py', '')}") for x in os.listdir("cogs") if x.endswith('.py') and not x.startswith("_")]
+    await ctx.send('✅')
 
 [bot.load_extension(f"cogs.{x.replace('.py', '')}") for x in os.listdir("./cogs") if x.endswith('.py')]
 

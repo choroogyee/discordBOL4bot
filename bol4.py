@@ -15,7 +15,7 @@ async def is_whitelisted(ctx):
     return ctx.author.id in [487962402097332224]
 
 botname = 'BOL4봇'
-token = 'NzA0NTY2MDM0NzIzNTA0MTc5.XqfAQA.pnBwyNk6QuAogCcrtx6K4euVlMQ'
+token = ''
 uptime = time.time()
 
 bot = commands.Bot(command_prefix='볼사봇 ', help_command=None, intents=discord.Intents.default())

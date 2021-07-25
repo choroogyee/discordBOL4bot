@@ -1,21 +1,15 @@
 import discord
 from discord.ext import commands
 import asyncio
-import datetime
 from datetime import date
 import time
-import bs4
-from urllib.request import urlopen, Request
-import urllib
-import urllib.request
-import random
 import os
 
 async def is_whitelisted(ctx):
-    return ctx.author.id in [487962402097332224]
+    return ctx.author.id in [487962402097332224, 558323117802389514]
 
 botname = 'BOL4봇'
-token = ''
+token = 'NzA0NTY2MDM0NzIzNTA0MTc5.XqfAQA.1aqnHfiprT7QDcQYWlavp7JN36E'
 uptime = time.time()
 
 bot = commands.Bot(command_prefix='볼사봇 ', help_command=None, intents=discord.Intents.default())
@@ -44,7 +38,7 @@ async def on_ready():
 
 
 @commands.check(is_whitelisted)
-@bot.command(name='재시작')
+@bot.command(name='재시작', aliases=['reload'])
 async def reload(ctx):
     [bot.reload_extension(f"cogs.{x.replace('.py', '')}") for x in os.listdir("cogs") if x.endswith('.py') and not x.startswith("_")]
     await ctx.send('✅')

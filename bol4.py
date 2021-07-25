@@ -9,7 +9,6 @@ async def is_whitelisted(ctx):
     return ctx.author.id in [487962402097332224, 558323117802389514]
 
 botname = 'BOL4봇'
-token = 'NzA0NTY2MDM0NzIzNTA0MTc5.XqfAQA.1aqnHfiprT7QDcQYWlavp7JN36E'
 uptime = time.time()
 
 bot = commands.Bot(command_prefix='볼사봇 ', help_command=None, intents=discord.Intents.default())
@@ -45,4 +44,7 @@ async def reload(ctx):
 
 [bot.load_extension(f"cogs.{x.replace('.py', '')}") for x in os.listdir("./cogs") if x.endswith('.py')]
 
-bot.run(token)
+with open('token.txt', 'r') as token:
+    data = token.read()
+
+bot.run(data)
